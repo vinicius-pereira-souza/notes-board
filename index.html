@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <title>Notes Board</title>
+  <script src="./src/js/script.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <img src="src/image/notes_board_logo.svg" alt="logo">
+  </header>
+  <main class="container">
+    <section class="board_container" id="todo">
+      <header class="card_header">
+        <h1>to do</h1>
+        <button class="addNote"></button>
+      </header>
+      <div class="dropzone">
+      </div>
+    </section>
+    <section class="board_container" id="doing">
+      <header class="card_header">
+        <h1>doing</h1>
+        <button class="addNote">
+        </button>
+      </header>
+      <div class="dropzone">
+      </div>
+    </section>
+    <section class="board_container" id="done">
+      <header class="card_header">
+        <h1>done</h1>
+        <button class="addNote"></button>
+      </header>
+      <div class="dropzone">
+      </div>
+    </section>
+  </main>
+  <div class="modal_gb" data-select-list="">
+    <form class="modal">
+      <input type="text" id="note" name="note" placeholder="enter your new note">
+      <div class="btns_flex">
+        <button id="add_note">add note</button>
+        <button id="close_modal">close</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

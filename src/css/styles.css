@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  user-select: none;
+  outline: none;
+}
+
+body {
+  min-height: 100vh;
+  background: url("../image/bg_notes_board.png") no-repeat center;
+  background-size: cover;
+  padding: 0 20px 20px 20px;
+}
+
+.header img {
+  max-width: 100%;
+  display: block;
+  margin: 70px auto 80px auto;
+}
+
+.container {
+  max-width: 1270px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-rows: minmax(400px, max-content);
+  gap: 35px;
+}
+
+.board_container {
+  min-height: 400px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+  border-radius: 30px;
+}
+
+.card_header {
+  height: 55px;
+  border-radius: 30px 30px 0 0;
+  background-color: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+
+.dropzone {
+  height: calc(100% - 55px);
+  padding: 30px 30px 50px 30px;
+}
+
+.card_header h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.card_header button {
+  width: 15px;
+  height: 15px;
+  display: block;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  background: url("../image/icon-plus-note.svg") no-repeat center;
+  background-size: auto;
+}
+
+.card_header button:is(:active, :hover) {
+  cursor: pointer;
+}
+
+.dragElement {
+  min-height: 140px;
+  padding: 15px;
+  background: rgba(221, 221, 221, 0.38);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.dragElement.segunrando {
+  cursor: grabbing;
+}
+
+.dragElement button {
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin-bottom: 7px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  background: url("../image/icon-close-note.svg") no-repeat center;
+  background-size: contain;
+  margin-left: calc(100% - 15px);
+}
+
+.dragElement button:is(:active, :hover) {
+  cursor: pointer;
+}
+
+.board_container:nth-child(1) .dragElement {
+  border-top: 5px solid #04d939;
+}
+
+.board_container:nth-child(2) .dragElement {
+  border-top: 5px solid #e4c71e;
+}
+
+.board_container:nth-child(3) .dragElement {
+  border-top: 5px solid #e84e4e;
+}
+
+.modal_gb {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal_gb.show_modal {
+  display: flex;
+  animation: show_modal 0.5s ease-in-out;
+}
+
+.modal {
+  width: 500px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.modal :where(button, input) {
+  height: 50px;
+}
+
+.modal input {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+  padding: 0 20px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.modal input:focus {
+  border-color: #e84e4e;
+}
+
+.modal input::placeholder {
+  color: rgba(0, 0, 0, 0.34);
+  text-transform: uppercase;
+}
+
+.btns_flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.btns_flex button {
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  width: 143px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.btns_flex button:nth-child(1) {
+  background-color: #04d939;
+}
+
+.btns_flex button:nth-child(2) {
+  background-color: #2196f3;
+}
+
+.btns_flex button:is(:hover, :active) {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btns_flex button:nth-child(1):is(:hover, :active) {
+  background: #049428;
+}
+
+.btns_flex button:nth-child(2):is(:hover, :active) {
+  background: #1c70b4;
+}
+
+@keyframes show_modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hidden_modal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
