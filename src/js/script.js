@@ -3,6 +3,7 @@ const dropzones = document.querySelectorAll(".dropzone");
 const btnsAddNote = document.querySelectorAll(".addNote");
 // CARD
 let dragged;
+
 // MODAL
 const modalContainer = document.querySelector(".modal_gb");
 const input = modalContainer.querySelector("input");
@@ -21,6 +22,10 @@ function dragOver(e) {
 
 function dropAction(e) {
   preventEventValidation(e);
+
+  dropzones.forEach((zone) => {
+    zone.classList.remove("movingElement");
+  });
 }
 
 function preventEventValidation(event) {
@@ -35,10 +40,19 @@ function preventEventValidation(event) {
 
 function dragStart(e) {
   dragged = e.target;
+  this.style.opacity = "0.4";
+
+  dropzones.forEach((zone) => {
+    zone.classList.add("movingElement");
+  });
 }
 
 function deleteNote(e) {
   e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+}
+
+function dragEnd(e) {
+  e.target.style.opacity = "1";
 }
 
 // MODAL FUNCTION
@@ -76,6 +90,7 @@ function createNewNote(text) {
 
   btn.addEventListener("click", deleteNote);
   div.addEventListener("dragstart", dragStart);
+  div.addEventListener("dragend", dragEnd);
 
   return div;
 }
