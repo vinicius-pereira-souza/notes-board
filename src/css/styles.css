@@ -55,6 +55,16 @@ body {
 .dropzone {
   height: calc(100% - 55px);
   padding: 30px 30px 50px 30px;
+  transition: 0.3s;
+  border-radius: 0 0 30px 30px;
+}
+
+.dropzone.movingElement {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.46) 0%,
+    rgba(255, 255, 255, 0.54) 100%
+  );
 }
 
 .card_header h1 {
@@ -82,13 +92,13 @@ body {
 .dragElement {
   min-height: 140px;
   padding: 15px;
-  background: rgba(221, 221, 221, 0.38);
+  background: rgba(221, 221, 221, 0.38) !important;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   margin-bottom: 15px;
 }
 
-.dragElement.segunrando {
+.dragElement.segurando {
   cursor: grabbing;
 }
 
@@ -222,4 +232,14 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+.custom-drag-ghost {
+  /* The original cloned element must not take place up in the page and must not be visible */
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  /* Just for appearance */
+  background-color: #edb458;
+  border: 1px solid #e8871e;
 }
