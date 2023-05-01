@@ -224,22 +224,3 @@ body {
     opacity: 1;
   }
 }
-
-@keyframes hidden_modal {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.custom-drag-ghost {
-  /* The original cloned element must not take place up in the page and must not be visible */
-  position: absolute;
-  top: -99999px;
-  left: -99999px;
-  /* Just for appearance */
-  background-color: #edb458;
-  border: 1px solid #e8871e;
-}
