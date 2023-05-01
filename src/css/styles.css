@@ -170,7 +170,7 @@ body {
 }
 
 .modal input:focus {
-  border-color: #e84e4e;
+  border-color: #2196f3;
 }
 
 .modal input::placeholder {
@@ -200,7 +200,7 @@ body {
 }
 
 .btns_flex button:nth-child(2) {
-  background-color: #2196f3;
+  background-color: #fd5454;
 }
 
 .btns_flex button:is(:hover, :active) {
@@ -209,11 +209,11 @@ body {
 }
 
 .btns_flex button:nth-child(1):is(:hover, :active) {
-  background: #049428;
+  background: #0d7fd9;
 }
 
 .btns_flex button:nth-child(2):is(:hover, :active) {
-  background: #1c70b4;
+  background: #e95555;
 }
 
 @keyframes show_modal {
