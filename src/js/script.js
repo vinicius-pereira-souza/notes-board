@@ -1,15 +1,14 @@
-// DROPZONE
+// dropzones e cards
 const dropzones = document.querySelectorAll(".dropzone");
 const btnsAddNote = document.querySelectorAll(".addNote");
-// CARD
 let dragged;
 
-// MODAL
+// modal
 const modalContainer = document.querySelector(".modal_gb");
 const input = modalContainer.querySelector("input");
 const btnsModal = document.querySelectorAll(".btns_flex button");
 
-// DROPZONE FUNCTION
+// abre o modal e passa o id da lista para o elemento criado ser adicionar na lista correta
 function openModal(e) {
   modalContainer.classList.add("show_modal");
 
@@ -20,6 +19,7 @@ function dragOver(e) {
   preventEventValidation(e);
 }
 
+// remove a classe das lista ao soltar o elemento arrastado
 function dropAction(e) {
   preventEventValidation(e);
 
@@ -36,8 +36,7 @@ function preventEventValidation(event) {
   }
 }
 
-// CARD FUNCTIONS
-
+// coloca na dragged o elemento que esta sendo arrastado
 function dragStart(e) {
   dragged = e.target;
   this.style.opacity = "0.4";
@@ -47,15 +46,17 @@ function dragStart(e) {
   });
 }
 
+// delete do html o seu respectivo
 function deleteNote(e) {
   e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 }
 
+// altera a opacidade do elemento ao final do evento de soltar
 function dragEnd(e) {
   e.target.style.opacity = "1";
 }
 
-// MODAL FUNCTION
+// checa qual botão dentro do modal esta sendo clicado
 function modalActions(e) {
   e.preventDefault();
 
@@ -66,6 +67,8 @@ function modalActions(e) {
   }
 }
 
+// checa se o input tem valor e adicionar a sua respectiva lista
+// o elementos criado com o valor do input
 function addNewNote(id) {
   let list = document.querySelector(`#${id} .dropzone`);
 
@@ -75,6 +78,7 @@ function addNewNote(id) {
   input.focus();
 }
 
+// cria o card com os elementos dentro e adiciona os eventos aos elementos
 function createNewNote(text) {
   const div = document.createElement("div");
   const btn = document.createElement("button");
@@ -95,15 +99,17 @@ function createNewNote(text) {
   return div;
 }
 
-// EVENTS
+// inicializa os evento de abrir o modal
 btnsAddNote.forEach((btn) => {
   btn.addEventListener("click", openModal);
 });
 
+// inicializa os eventos dos botões do modal
 btnsModal.forEach((btn) => {
   btn.addEventListener("click", modalActions);
 });
 
+// inicializa os eventos de dragover e drop
 dropzones.forEach((zone) => {
   zone.addEventListener("dragover", dragOver, false);
   zone.addEventListener("drop", dropAction);
